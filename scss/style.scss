@@ -4,7 +4,8 @@
     box-sizing: border-box;
 }
 
-$black-color: #181A27;
+$dark-blue: #181A27;
+$dark: #111111;
 $gray-dark: #222222;
 $red-color: #E41C26;
 
@@ -80,11 +81,157 @@ $red-color: #E41C26;
     }
 
     .home-description {
+        @mixin background-image($url) {
+            background-image: url($url);
+            background-position: bottom right;
+            background-repeat: no-repeat;
+        }
+
         .progression {
-            background: $gray-dark;
+            background-color: $gray-dark;
+            @include background-image('../assets/svgs/16-express-gray.png');
         }
         .nutrition {
             background: $red-color;
+            @include background-image('../assets/svgs/clipboard-gray.png');
         }
+        .workout {
+            @include background-image('../assets/svgs/XMLID_1490_gray.png');
+        }
+
+        &-left {
+            background: $gray-dark;
+        }
+        &-right {
+            background: $red-color;
+        }
+    }
+}
+
+
+#about {
+        background: url('../assets/svgs/about-background.png') no-repeat center right ;
+        background-size: 50% 50%;
+    .container {
+        
+    }
+
+    @media screen and (max-width: 768px) {
+        background-size: 100%;
+        background-position: bottom center;
+    }
+}
+
+#features {
+    background-color: $dark;
+    color: #ffffff;
+    text-align: center;
+    padding: 10em 0;
+    z-index: -1;
+
+    .features-header {
+        position: relative;
+        transform-style: preserve-3d;
+        margin-bottom: 1.5em;
+
+        &:before {
+            content: 'FEATURES';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) translateZ(-1000px);
+            color: transparent;
+            font-size: 48px;
+            -webkit-text-stroke: 3px rgba($gray-dark, 0.9);
+            letter-spacing: .3em;
+        }
+        &:after {
+            content: '';
+            position: absolute;
+            width: 15%;
+            height: 4px; 
+            background: $red-color;
+            bottom: -.2em;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    .card {
+        background-color: $gray-dark;
+        
+        .card-img {
+            margin: 1.2em 0;
+        }
+
+        .card-text {
+            font-size: 12px;
+            font-weight: 300px;
+        }
+    }
+}
+
+.ads-wrapper {
+    margin-top: -5em;
+    z-index: 1000;
+
+    .ads {
+        background: $red-color;
+    }
+}
+
+#testimonial {
+    padding: 10em 0;
+
+    .testimonial-image-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+        .testimonial-image {
+            width: 40%;
+            height: 40%;
+            position: absolute;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+        }
+        .top-img {
+            top: 0;
+            z-index: 1000;
+            left: 20%;
+            height: 50%;
+        }
+        .bw-img{
+            filter: grayscale(100%);
+        }
+        .testimonial-img-2  {
+            left: 0;
+            top: 30%;
+        }
+        .testimonial-img-3 {
+            right: 0;
+            top: 40%;
+        }
+        .testimonial-img-4 {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: -1;
+        }
+        
+    }
+
+}
+
+#training {
+    padding: 5em 0;
+
+    .training-wrapper {
+        background: $dark;
+        padding: 2em 0 5em 0;
     }
 }
